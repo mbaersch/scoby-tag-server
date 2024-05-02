@@ -49,6 +49,28 @@ ___TEMPLATE_PARAMETERS___
         "help": "Please find your API key in your workspace-settings on https://app.scoby.io"
       },
       {
+        "type": "SELECT",
+        "name": "clientIdSource",
+        "displayName": "Client ID Source",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "hash",
+            "displayValue": "Hash"
+          },
+          {
+            "value": "event",
+            "displayValue": "Event Data"
+          },
+          {
+            "value": "custom",
+            "displayValue": "Custom"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "auto"
+      },
+      {
         "type": "TEXT",
         "name": "salt",
         "displayName": "Secret Salt",
@@ -57,6 +79,31 @@ ___TEMPLATE_PARAMETERS___
         "valueValidators": [
           {
             "type": "NON_EMPTY"
+          }
+        ],
+        "enablingConditions": [
+          {
+            "paramName": "clientIdSource",
+            "paramValue": "hash",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "TEXT",
+        "name": "customClientId",
+        "displayName": "Custom Client ID",
+        "simpleValueType": true,
+        "valueValidators": [
+          {
+            "type": "NON_EMPTY"
+          }
+        ],
+        "enablingConditions": [
+          {
+            "paramName": "clientIdSource",
+            "paramValue": "custom",
+            "type": "EQUALS"
           }
         ]
       },
@@ -197,12 +244,17 @@ if (!decodedKey.indexOf("|")) {
   const apiKey = 'Bearer ' + decodedKey.split('|')[1];
   const appId = decodedKey.split('|')[0];
   const userAgent = eventData.user_agent || getRequestHeader("user-agent");
-  const visitorId = sha256Sync([
-                       getRemoteAddress(), 
-                       userAgent, 
-                       appId, 
-                       data.salt
-                    ].join('|'), {outputEncoding: 'hex'});
+  let visitorId = eventData.client_id;
+  if (data.clientIdSource === "hash") 
+    visitorId = sha256Sync([
+      getRemoteAddress(), 
+      userAgent, 
+      appId, 
+      data.salt
+    ].join('|'), {outputEncoding: 'hex'});
+  else if (data.clientIdSource === "custom") 
+    visitorId = data.customClientId||"666";
+  
   const requestedUrl = cleanupRequestedUrl(url);
   const referringUrl = eventData.page_referrer;
   
