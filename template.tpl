@@ -141,7 +141,9 @@ function cleanupRequestedUrl(qurl) {
       queryParams.push(param + '=' + encodeUriComponent(url.searchParams[param]));
     }
   }
-  return url.origin + '?' + queryParams.join('&');
+  let res = url.origin + url.pathname;
+  if (queryParams.length > 0) res += '?' + queryParams.join('&'); 
+    return res; 
 }
 
 function determinateIsLoggingEnabled() {
