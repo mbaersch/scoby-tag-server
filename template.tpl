@@ -151,6 +151,20 @@ ___TEMPLATE_PARAMETERS___
         "defaultValue": "debug"
       }
     ]
+  },
+  {
+    "type": "GROUP",
+    "name": "groupAdvanced",
+    "displayName": "Advanced Settings",
+    "groupStyle": "NO_ZIPPY",
+    "subParams": [
+      {
+        "type": "TEXT",
+        "name": "segments",
+        "displayName": "Visitor Segments (optional)",
+        "simpleValueType": true
+      }
+    ]
   }
 ]
 
@@ -262,7 +276,8 @@ if (!decodedKey.indexOf("|")) {
   params.push('vid=' + encodeUriComponent(visitorId));
   params.push('ua=' + encodeUriComponent(userAgent));
   params.push('url=' + encodeUriComponent(requestedUrl));
-  params.push('ref=' + encodeUriComponent(referringUrl));
+  if (referringUrl) params.push('ref=' + encodeUriComponent(referringUrl));
+  if (data.segments) params.push('sg=' + encodeUriComponent(data.segments));
   
   serviceUrl = 'https://' + appId + '.s3y.io/count?' + params.join('&');
   stpLog('Request', 'page_view', {method: 'GET'});
