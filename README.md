@@ -8,7 +8,7 @@ Send pageviews to Scoby Analytics
 ---
 
 ## Usage
-Install the tag template and add a new *Scoby Analytics* tag. Enter your **Licence Key** (API Key). Per default, the tag sends ever event as page view when loaded. 
+Install the tag template and add a new *Scoby Analytics* tag. Enter your [**Licence Key**](https://docs.scoby.io/getting-started/obtain-license-key) and choose a proper value for your [Secret Salt](https://docs.scoby.io/getting-started/generating-salt-value). Per default, the tag sends every event as page view when loaded. 
 
 **NOTE**: Make sure to only fore on pageviews to avoid flooding your Scoby workspace with false pageview counts.   
 
