@@ -10,7 +10,7 @@ Send pageviews to Scoby Analytics
 ## Usage
 Install the tag template and add a new *Scoby Analytics* tag. Enter your [**Licence Key**](https://docs.scoby.io/getting-started/obtain-license-key) and choose a proper value for your [Secret Salt](https://docs.scoby.io/getting-started/generating-salt-value). Per default, the tag sends every event as page view when loaded. 
 
-**NOTE**: Make sure to only fore on pageviews to avoid flooding your Scoby workspace with false pageview counts.   
+**NOTE**: Make sure to only fire on pageviews to avoid flooding your Scoby workspace with false pageview counts.   
 
 ### Client ID
 Pick a constant or changing **Salt** value if you want the tag to determine a client id from ip address and user agent. You can also use the `client_id` from imcoming event data or any custom value.
