@@ -38,7 +38,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "TEXT",
         "name": "apiKey",
-        "displayName": "API Key",
+        "displayName": "License Key",
         "simpleValueType": true,
         "valueValidators": [
           {
@@ -46,7 +46,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "defaultValue": "",
-        "help": "Please find your API key in your workspace-settings on https://app.scoby.io"
+        "help": "Please find your Workspace's License Key (https://docs.scoby.io/getting-started/obtain-license-key)"
       },
       {
         "type": "SELECT",
@@ -75,7 +75,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "salt",
         "displayName": "Secret Salt",
         "simpleValueType": true,
-        "help": "The salt helps to anonymize your traffic before it is sent to our servers. It must be an alphanumeric string of at least 32 characters. You can generate one on e.g. https://onlinetools.com/random/generate-random-string",
+        "help": "Generate a secure Salt value to anonymize your data (https://docs.scoby.io/getting-started/generating-salt-value)",
         "valueValidators": [
           {
             "type": "NON_EMPTY"

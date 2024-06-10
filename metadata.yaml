@@ -2,5 +2,8 @@ homepage: "https://www.markus-baersch.de"
 documentation: "https://github.com/mbaersch/scoby-tag-server#readme"
 versions:
   # Latest version
+  - sha: bffe86793272865578ba5529eab006efb91fdaac
+    changeNotes: updated help texts
+  # Older versions
   - sha: 1ecab5228d2e238a870e630ee47b39c6b6f8bb22
     changeNotes: Initial release.
