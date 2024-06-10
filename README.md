@@ -3,7 +3,7 @@
 
 Send pageviews to Scoby Analytics 
 
-![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-submitted-orange) ![Repo Size](https://img.shields.io/github/repo-size/mbaersch/scoby-tag-server) ![License](https://img.shields.io/github/license/mbaersch/scoby-tag-server)
+[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/scoby-tag-server) ![Repo Size](https://img.shields.io/github/repo-size/mbaersch/scoby-tag-server) ![License](https://img.shields.io/github/license/mbaersch/scoby-tag-server)
 
 ---
 
